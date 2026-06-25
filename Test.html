@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempera - Agen Perjalanan & Travel Bandung</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gold-text {
+            background: linear-gradient(to right, #FFD700, #E5B80B, #FFD700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-slate-200 font-sans antialiased relative">
+
+    <!-- NAVBAR LUXURY -->
+    <nav class="fixed w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-md border-b border-[#E5B80B]/30 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+            
+            <!-- Kiri: Logo -->
+            <div class="flex items-center gap-2">
+                <svg class="w-8 h-8 text-[#E5B80B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/>
+                </svg>
+                <span class="text-2xl font-bold bg-gradient-to-r from-[#E5B80B] to-[#FBBF24] bg-clip-text text-transparent">
+                    Tempera
+                </span>
+            </div>
+
+            <!-- Tengah: Menu Link -->
+            <div class="hidden md:flex items-center gap-10 font-light text-[11px] uppercase tracking-[0.3em] text-gray-300">
+                <a href="#home" class="hover:text-[#E5B80B] transition" data-i18n="nav_home">Beranda</a>
+                <a href="#destinasi" class="hover:text-[#E5B80B] transition" data-i18n="nav_dest">Destinasi</a>
+                <a href="#galeri" class="hover:text-[#E5B80B] transition" data-i18n="nav_galeri">Galeri</a>
+                <a href="#armada" class="hover:text-[#E5B80B] transition" data-i18n="nav_armada">Armada</a>
+                <a href="#fasilitas" class="hover:text-[#E5B80B] transition" data-i18n="nav_fasilitas">Fasilitas</a>
+            </div>
+
+            <!-- Kanan: Bahasa & Tombol -->
+            <div class="flex items-center gap-6">
+                <!-- Dropdown Bahasa -->
+                <div class="relative">
+                    <button onclick="toggleDropdown(event)" class="flex items-center gap-1 text-[10px] uppercase tracking-[0.2em] text-[#E5B80B] hover:text-white transition">
+                        <span id="currentLang">🇮🇩 ID</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="langMenu" class="hidden absolute right-0 mt-3 w-32 bg-[#111] border border-[#E5B80B]/30 rounded shadow-2xl z-[9999]">
+                        <button onclick="changeLanguage('id', '🇮🇩 ID')" class="flex items-center gap-2 w-full px-4 py-3 text-[10px] text-gray-300 hover:text-[#E5B80B] hover:bg-[#1A1A1A]">🇮🇩 ID</button>
+                        <button onclick="changeLanguage('en', '🇬🇧 EN')" class="flex items-center gap-2 w-full px-4 py-3 text-[10px] text-gray-300 hover:text-[#E5B80B] hover:bg-[#1A1A1A]">🇬🇧 EN</button>
+                        <button onclick="changeLanguage('ms', '🇲🇾 MS')" class="flex items-center gap-2 w-full px-4 py-3 text-[10px] text-gray-300 hover:text-[#E5B80B] hover:bg-[#1A1A1A]">🇲🇾 MS</button>
+                    </div>
+                </div>
+                
+                <!-- Tombol Pesan -->
+                <a href="#pesan" class="border border-[#E5B80B] px-6 py-2 text-[10px] uppercase tracking-[0.2em] text-[#E5B80B] hover:bg-[#E5B80B] hover:text-black font-bold transition" data-i18n="nav_order">Pesan Sekarang</a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+
+    <!-- HEADER -->
+    <header id="home" class="relative text-white py-24 md:py-40 overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+            <source src="VID-20260623-WA0083.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/70"></div>
+        
+        <div class="relative max-w-5xl mx-auto px-4 text-center z-10">
+            <span class="inline-block border border-[#E5B80B]/50 text-[#E5B80B] px-6 py-2 text-[10px] font-bold uppercase tracking-[0.3em] mb-8" data-i18n="hero_badge">Bandung Tour Specialist</span>
+            
+            <h1 class="text-5xl md:text-7xl font-serif tracking-tight mb-8 leading-tight">
+                <span data-i18n="hero_title_1">Eksplorasi Keanggunan</span> <br>
+                <span class="gold-text" data-i18n="hero_title_2">Lembang & Ciwidey</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-12 font-light leading-relaxed drop-shadow-md" data-i18n="hero_desc">
+                Nikmati perjalanan wisata yang dikurasi khusus untuk ketenangan dan kenyamanan jiwa Anda di tanah Pasundan.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#destinasi" class="w-full sm:w-auto bg-[#E5B80B] hover:bg-[#FFD700] text-black font-bold px-10 py-4 uppercase tracking-[0.2em] text-[10px] transition-all duration-500 text-center shadow-lg" data-i18n="btn_rute">
+                    Lihat Pilihan Rute
+                </a>
+                <a href="#pesan" class="w-full sm:w-auto border border-[#E5B80B] text-white hover:bg-[#E5B80B] hover:text-black font-bold px-10 py-4 uppercase tracking-[0.2em] text-[10px] transition-all duration-500 text-center backdrop-blur-sm" data-i18n="btn_jadwal">
+                    Konsultasi Jadwal
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- DESTINASI SECTION (Luxury Edition) -->
+<section id="destinasi" class="py-20 bg-[#0A0A0A] text-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl font-serif text-[#E5B80B] sm:text-4xl mb-4 tracking-widest uppercase" data-i18n="dest_title">Paket Wisata Favorit</h2>
+            <p class="text-slate-400" data-i18n="dest_subtitle">Pilihan rute terbaik untuk pengalaman liburan yang eksklusif.</p>
+        </div>
+    
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-[#111111] rounded-2xl overflow-hidden border border-[#E5B80B]/20 group hover:border-[#E5B80B]/50 transition-all duration-500">
+                <div class="h-52 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-[url('IMG-20260623-WA0074.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-700"></div>
+                    <span class="absolute top-4 left-4 bg-[#E5B80B] text-black font-bold px-3 py-1 rounded-full text-xs uppercase tracking-widest" data-i18n="tag_north">Bandung Utara</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2" data-i18n="card1_title">Lembang Nature & Family</h3>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-i18n="card1_desc">Orchid Forest Cikole, Floating Market, Dusun Bambu, dan mampir ke pusat tahu susu kuliner Lembang.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-[#E5B80B]/10">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest text-slate-500 block" data-i18n="price_start">Mulai dari</span>
+                            <span class="text-lg font-bold text-[#E5B80B]">Rp 3.000.000</span>
+                        </div>
+                        <span class="text-[10px] font-bold text-[#E5B80B]/60 bg-[#E5B80B]/10 px-3 py-1 rounded-full uppercase tracking-widest" data-i18n="dur1">4 hari 3 malam</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-[#111111] rounded-2xl overflow-hidden border border-[#E5B80B]/20 group hover:border-[#E5B80B]/50 transition-all duration-500 flex flex-col">
+                <div class="h-52 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80')] bg-cover bg-center group-hover:scale-105 transition-transform duration-700"></div>
+                    <span class="absolute top-4 left-4 bg-[#E5B80B] text-black font-bold px-3 py-1 rounded-full text-xs uppercase tracking-widest" data-i18n="tag_south">Bandung Selatan</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold text-white mb-2" data-i18n="card2_title">Pesona Alam Ciwidey</h3>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow" data-i18n="card2_desc">Eksplorasi Kawah Putih yang magis, rusa Ranca Upas, dan Kebun Teh Rancabali.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-[#E5B80B]/10 mt-auto">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest text-slate-500 block" data-i18n="price_start">Mulai dari</span>
+                            <span class="text-lg font-bold text-[#E5B80B]">Rp 2.500.000</span>
+                        </div>
+                        <span class="text-[10px] font-bold text-[#E5B80B]/60 bg-[#E5B80B]/10 px-3 py-1 rounded-full uppercase tracking-widest" data-i18n="dur2">3 hari 2 malam</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-[#111111] rounded-2xl overflow-hidden border border-[#E5B80B]/20 group hover:border-[#E5B80B]/50 transition-all duration-500 flex flex-col">
+                <div class="h-52 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80')] bg-cover bg-center group-hover:scale-105 transition-transform duration-700"></div>
+                    <span class="absolute top-4 left-4 bg-[#E5B80B] text-black font-bold px-3 py-1 rounded-full text-xs uppercase tracking-widest" data-i18n="tag_flex">Fleksibel</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold text-white mb-2" data-i18n="card3_title">Custom / Private Trip</h3>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow" data-i18n="card3_desc">Bebas tentukan destinasi impian Anda sendiri dengan kenyamanan penuh bersama layanan premium kami.</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-[#E5B80B]/10 mt-auto">
+                        <span class="text-[10px] uppercase tracking-widest text-slate-500 block" data-i18n="price_info">Info Tarif</span>
+                        <span class="text-lg font-bold text-[#E5B80B]" data-i18n="contact_admin">Hubungi Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ARMADA SECTION -->
+<section id="armada" class="py-24 bg-[#050505] border-t border-[#E5B80B]/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-serif text-[#E5B80B] sm:text-4xl mb-4 tracking-widest uppercase" data-i18n="fleet_title">Armada Prima</h2>
+            <div class="w-16 h-[2px] bg-[#E5B80B] mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Unit 1 -->
+            <div class="bg-[#111111] border border-[#E5B80B]/20 p-1 group hover:border-[#E5B80B]/50 transition-all duration-500 flex flex-col">
+                <div class="h-48 w-full overflow-hidden bg-black relative">
+                    <img src="all-new-toyota-avanza-2024.jpg" alt="Avanza" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-lg font-bold text-white mb-2" data-i18n="car1_name">Avanza / Xenia New</h3>
+                    <ul class="text-xs text-slate-400 space-y-3 mb-6 border-y border-[#E5B80B]/10 py-4 flex-grow">
+                        <li data-i18n="feat1_1">🔹 Maksimal 6 Penumpang</li>
+                        <li data-i18n="feat1_2">🔹 Double Blower AC Dingin</li>
+                        <li data-i18n="feat1_3">🔹 Termasuk Driver + BBM</li>
+                    </ul>
+                    <a href="#pesan" class="block text-center w-full bg-[#E5B80B] hover:bg-[#FFD700] text-black font-bold py-3 uppercase tracking-widest text-[10px] transition-all mt-auto" data-i18n="btn_select">Pilih Unit</a>
+                </div>
+            </div>
+            <!-- Unit 2 -->
+            <div class="bg-[#111111] border border-[#E5B80B]/20 p-1 group hover:border-[#E5B80B]/50 transition-all duration-500 flex flex-col">
+                <div class="h-48 w-full overflow-hidden bg-black relative">
+                    <img src="20250722214018innova_zenix_hybrid_second.webp" alt="Innova Zenix" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-lg font-bold text-white mb-2" data-i18n="car2_name">Innova Reborn / Zenix</h3>
+                    <ul class="text-xs text-slate-400 space-y-3 mb-6 border-y border-[#E5B80B]/10 py-4 flex-grow">
+                        <li data-i18n="feat2_1">🔹 Maksimal 7 Penumpang</li>
+                        <li data-i18n="feat2_2">🔹 Kabin Luas & Bagasi Besar</li>
+                        <li data-i18n="feat2_3">🔹 Termasuk Driver + BBM</li>
+                    </ul>
+                    <a href="#pesan" class="block text-center w-full bg-[#E5B80B] hover:bg-[#FFD700] text-black font-bold py-3 uppercase tracking-widest text-[10px] transition-all mt-auto" data-i18n="btn_select">Pilih Unit</a>
+                </div>
+            </div>
+            <!-- Unit 3 -->
+            <div class="bg-[#111111] border border-[#E5B80B]/20 p-1 group hover:border-[#E5B80B]/50 transition-all duration-500 flex flex-col">
+                <div class="h-48 w-full overflow-hidden bg-black relative">
+                    <img src="sewa-mobil-hiace-premio-di-cirebon.jpg" alt="Hiace" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-lg font-bold text-white mb-2" data-i18n="car3_name">HiAce Commuter / Premio</h3>
+                    <ul class="text-xs text-slate-400 space-y-3 mb-6 border-y border-[#E5B80B]/10 py-4 flex-grow">
+                        <li data-i18n="feat3_1">🔹 Kapasitas 14 - 15 Kursi</li>
+                        <li data-i18n="feat3_2">🔹 Reclining Seat (Kursi Setel)</li>
+                        <li data-i18n="feat3_3">🔹 Termasuk Driver + BBM</li>
+                    </ul>
+                    <a href="#pesan" class="block text-center w-full bg-[#E5B80B] hover:bg-[#FFD700] text-black font-bold py-3 uppercase tracking-widest text-[10px] transition-all mt-auto" data-i18n="btn_select">Pilih Unit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FASILITAS SECTION -->
+<section id="fasilitas" class="py-24 bg-[#050505]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl font-serif text-[#E5B80B] sm:text-4xl mb-4 tracking-widest uppercase" data-i18n="feat_title">Fasilitas All-In</h2>
+            <div class="w-16 h-[2px] bg-[#E5B80B] mx-auto"></div>
+        </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="bg-[#111111] p-8 rounded-xl border border-[#E5B80B]/20 hover:border-[#E5B80B]/50 transition-all">
+        <div class="text-[#E5B80B] text-2xl mb-4">&#10003;</div>
+        <h3 class="text-lg font-bold text-white mb-2" data-i18n="f1_title">Armada Prima</h3>
+        <p class="text-slate-400 text-xs leading-relaxed" data-i18n="f1_desc">Unit rutin dirawat, bersih, dan AC dingin bertenaga untuk kenyamanan maksimal.</p>
+    </div>
+    <div class="bg-[#111111] p-8 rounded-xl border border-[#E5B80B]/20 hover:border-[#E5B80B]/50 transition-all">
+        <div class="text-[#E5B80B] text-2xl mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <h3 class="text-lg font-bold text-white mb-2" data-i18n="f2_title">Driver Ekspertis</h3>
+        <p class="text-slate-400 text-xs leading-relaxed" data-i18n="f2_desc">Pengemudi ramah yang hafal medan kelokan serta jalur bebas macet.</p>
+    </div>
+    <div class="bg-[#111111] p-8 rounded-xl border border-[#E5B80B]/20 hover:border-[#E5B80B]/50 transition-all">
+        <div class="text-[#E5B80B] text-2xl mb-4">&#128176;</div>
+        <h3 class="text-lg font-bold text-white mb-2" data-i18n="f3_title">Harga Transparan</h3>
+        <p class="text-slate-400 text-xs leading-relaxed" data-i18n="f3_desc">Termasuk mobil, driver, dan BBM. Tidak ada biaya kejutan di tengah jalan.</p>
+    </div>
+    <div class="bg-[#111111] p-8 rounded-xl border border-[#E5B80B]/20 hover:border-[#E5B80B]/50 transition-all">
+        <div class="text-[#E5B80B] text-2xl mb-4">&#9742;</div>
+        <h3 class="text-lg font-bold text-white mb-2" data-i18n="f4_title">Konsultasi Rute</h3>
+        <p class="text-slate-400 text-xs leading-relaxed" data-i18n="f4_desc">Kami bantu susun urutan objek wisata agar efisien dan berkesan.</p>
+    </div>
+</div>
+
+    </div>
+</section>
+<!-- ARMADA SECTION DENGAN HARGA - TEMPERA LUXURY -->
+<section id="armada-harga" class="py-24 bg-[#050505]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-serif text-[#E5B80B] sm:text-4xl mb-4 tracking-widest uppercase" data-i18n="fleet_price_title">Pilihan Armada & Harga</h2>
+            <div class="w-24 h-[1px] bg-[#E5B80B]/50 mx-auto"></div>
+            <p class="text-slate-500 text-sm mt-4" data-i18n="fleet_note">Harga paket 12 jam (All-In: Unit, Driver, & BBM)</p>
+        </div>
+
+        <div class="overflow-hidden rounded-2xl border border-[#E5B80B]/20 bg-[#111111] shadow-2xl">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-[#E5B80B]/5">
+                        <th class="py-5 px-6 text-[#E5B80B] uppercase tracking-[0.2em] text-[10px] font-bold" data-i18n="tbl_header_car">Armada</th>
+                        <th class="py-5 px-6 text-[#E5B80B] uppercase tracking-[0.2em] text-[10px] font-bold text-center" data-i18n="tbl_header_cap">Kapasitas</th>
+                        <th class="py-5 px-6 text-[#E5B80B] uppercase tracking-[0.2em] text-[10px] font-bold text-right" data-i18n="tbl_header_price">Harga (12 Jam)</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-[#E5B80B]/10">
+                    <tr>
+                        <td class="py-5 px-6 font-bold text-white">Toyota Calya</td>
+                        <td class="py-5 px-6 text-center text-slate-400 text-sm" data-i18n="cap_57">5-7 Orang</td>
+                        <td class="py-5 px-6 text-[#E5B80B] font-bold text-right text-sm">Rp 550.000</td>
+                    </tr>
+                    <tr>
+                        <td class="py-5 px-6 font-bold text-white">Toyota Avanza</td>
+                        <td class="py-5 px-6 text-center text-slate-400 text-sm" data-i18n="cap_7">7 Orang</td>
+                        <td class="py-5 px-6 text-[#E5B80B] font-bold text-right text-sm">Rp 650.000</td>
+                    </tr>
+                    <tr>
+                        <td class="py-5 px-6 font-bold text-white">Toyota Innova</td>
+                        <td class="py-5 px-6 text-center text-slate-400 text-sm" data-i18n="cap_7">7 Orang</td>
+                        <td class="py-5 px-6 text-[#E5B80B] font-bold text-right text-sm">Rp 950.000</td>
+                    </tr>
+                    <tr>
+                        <td class="py-5 px-6 font-bold text-white">Toyota Hiace</td>
+                        <td class="py-5 px-6 text-center text-slate-400 text-sm" data-i18n="cap_15">15 Orang</td>
+                        <td class="py-5 px-6 text-[#E5B80B] font-bold text-right text-sm">Rp 1.600.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="text-center text-slate-500 text-xs mt-8" data-i18n="fleet_disclaimer">
+            *Harga dapat berubah sesuai rute dan tanggal keberangkatan. Hubungi kami untuk penawaran khusus.
+        </p>
+    </div>
+</section>
+
+<!-- TESTIMONI SECTION -->
+<section id="testimoni" class="py-24 bg-[#0A0A0A] border-t border-[#E5B80B]/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl font-serif text-[#E5B80B] sm:text-4xl mb-4 tracking-widest uppercase" data-i18n="testi_title">Cerita Perjalanan</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="bg-[#111111] p-8 rounded-2xl border border-[#E5B80B]/10">
+                <p class="text-slate-400 italic mb-6" data-i18n="testi1_desc">"Liburan ke Kawah Putih Ciwidey jadi praktis. Driver sabar, nyetir halus, dan sangat tepat waktu. Sangat recommended!"</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 border border-[#E5B80B] text-[#E5B80B] font-bold rounded-full flex items-center justify-center text-sm">A</div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Andri Hermawan</h4>
+                        <span class="text-xs text-slate-500 uppercase tracking-widest" data-i18n="city_jkt">Jakarta</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[#111111] p-8 rounded-2xl border border-[#E5B80B]/10">
+                <p class="text-slate-400 italic mb-6" data-i18n="testi2_desc">"Rekomendasi mantap buat ke Lembang tanpa pusing macet. Tinggal duduk manis, dijemput, dan liburan jadi nyaman."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 border border-[#E5B80B] text-[#E5B80B] font-bold rounded-full flex items-center justify-center text-sm">S</div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Siti Rahma</h4>
+                        <span class="text-xs text-slate-500 uppercase tracking-widest" data-i18n="city_bks">Bekasi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PESAN SECTION -->
+<section id="pesan" class="py-20 bg-[#050505]">
+    <div class="max-w-3xl mx-auto px-4">
+        <div class="bg-[#0a0a0a] p-10 md:p-14 border border-[#E5B80B]/20 shadow-2xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-2 uppercase tracking-[0.2em]" data-i18n="booking_title">Reservasi Perjalanan</h2>
+                <div class="w-20 h-[1px] bg-[#E5B80B]/50 mx-auto mb-6"></div>
+                <p class="text-slate-500 text-sm tracking-wide font-light" data-i18n="booking_subtitle">Silakan lengkapi data di bawah ini untuk proses pemesanan.</p>
+            </div>
+
+            <form id="travelForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-[0.2em] font-bold text-slate-600 mb-2" data-i18n="form_name">Nama Lengkap</label>
+                        <input id="formNama" type="text" required placeholder="Nama Anda" class="w-full bg-transparent text-white border-b border-[#E5B80B]/30 py-3 focus:border-[#E5B80B] outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-[0.2em] font-bold text-slate-600 mb-2" data-i18n="form_contact">WhatsApp / HP</label>
+                        <input id="formKontak" type="tel" required placeholder="0812..." class="w-full bg-transparent text-white border-b border-[#E5B80B]/30 py-3 focus:border-[#E5B80B] outline-none transition-all">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-[0.2em] font-bold text-slate-600 mb-2" data-i18n="form_route">Pilih Rute Wisata</label>
+              <div class="space-y-6">
+    <!-- Kelompok Lembang -->
+    <div>
+        <label class="block text-[10px] uppercase tracking-[0.2em] font-bold text-[#E5B80B] mb-3">Wisata Lembang</label>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="lembang" value="Tangkuban Perahu" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Tangkuban Perahu</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="lembang" value="Floating Market" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Floating Market</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="lembang" value="Farmhouse" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Farmhouse</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="lembang" value="Great Asia Afrika" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Great Asia Afrika</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="lembang" value="Dusun Bambu" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Dusun Bambu</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="lembang" value="Lembang Park & Zoo" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Lembang Park & Zoo</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="lembang" value="Orchid Forest" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Orchid Forest</span></label>
+        </div>
+    </div>
+
+    <!-- Kelompok Ciwidey -->
+    <div>
+        <label class="block text-[10px] uppercase tracking-[0.2em] font-bold text-[#E5B80B] mb-3">Wisata Ciwidey</label>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="ciwidey" value="Kawah Putih" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Kawah Putih</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="ciwidey" value="Kawah Rengganis" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Kawah Rengganis</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="ciwidey" value="Ranca Upas" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Ranca Upas</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="ciwidey" value="Situ Patenggang" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Situ Patenggang</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="ciwidey" value="Glamping Lakeside" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Glamping Lakeside</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="ciwidey" value="Barusen Hills" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Barusen Hills</span></label>
+        </div>
+    </div>
+
+    <!-- Kelompok Pangalengan -->
+    <div>
+        <label class="block text-[10px] uppercase tracking-[0.2em] font-bold text-[#E5B80B] mb-3">Wisata Pangalengan</label>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="pangalengan" value="Nimo Highland" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Nimo Highland</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="pangalengan" value="Situ Cileunca" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Situ Cileunca</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="pangalengan" value="Wayang Windu Panenjoan" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Wayang Windu</span></label>
+            <label class="flex items-center space-x-3 cursor-pointer group"><input type="checkbox" name="destinasi" data-group="pangalengan" value="Hutan Pinus Rahong" class="w-4 h-4 accent-[#E5B80B] cursor-pointer"><span class="text-sm text-slate-400 group-hover:text-white transition">Hutan Pinus Rahong</span></label>
+        </div>
+    </div>
+</div>
+
+
+
+                    </div>
+                    <!-- Bagian Pilihan Unit Baru -->
+<div>
+    <label class="block text-[10px] uppercase tracking-[0.2em] font-bold text-slate-600 mb-2">Pilih Jenis Unit</label>
+    <select id="formUnit" required class="w-full bg-[#111111] text-white border-b border-[#E5B80B]/30 py-3 focus:border-[#E5B80B] outline-none transition-all cursor-pointer">
+        <option value="" disabled selected>Pilih Unit Armada</option>
+        <option value="Toyota Avanza">Toyota Avanza (Max 6 Orang) - Rp600.000</option>
+        <option value="Toyota Innova Reborn">Toyota Innova Reborn (Max 7 Orang) - Rp900.000</option>
+        <option value="Toyota Hiace">Toyota Hiace (Max 15 Orang) - Rp1.500.000</option>
+    </select>
+</div>
+
+<!-- Bagian Jumlah Peserta yang sudah ada -->
+<div>
+    <label class="block text-[10px] uppercase tracking-[0.2em] font-bold text-slate-600 mb-2" data-i18n="form_pax">Jumlah Peserta</label>
+    <input id="formJumlah" type="number" min="1" required placeholder="1" class="w-full bg-transparent text-white border-b border-[#E5B80B]/30 py-3 focus:border-[#E5B80B] outline-none transition-all">
+</div>
+</div> <!-- Penutup grid sebelumnya -->
+
+<!-- Sisa form Bapak -->
+<div class="grid grid-cols-1 gap-6">
+    <div>
+        <label class="block text-[10px] uppercase tracking-[0.2em] font-bold text-slate-600 mb-2" data-i18n="form_date">Tanggal Perjalanan</label>
+        <input id="formTanggal" type="date" required class="w-full bg-transparent text-white border-b border-[#E5B80B]/30 py-3 focus:border-[#E5B80B] outline-none transition-all">
+    </div>
+    <div>
+        <label class="block text-[10px] uppercase tracking-[0.2em] font-bold text-slate-600 mb-2" data-i18n="form_note">Catatan / Lokasi Penjemputan</label>
+        <textarea id="formCatatan" rows="3" placeholder="Contoh: Jemput di Stasiun Bandung jam 08.00..." class="w-full bg-transparent text-white border-b border-[#E5B80B]/30 py-3 focus:border-[#E5B80B] outline-none transition-all"></textarea>
+    </div>
+</div>
+<button type="submit" 
+    style="border-color: #E5B80B; color: #E5B80B;" 
+    onmouseover="this.style.backgroundColor='#E5B80B'; this.style.color='black'" 
+    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#E5B80B'" 
+    class="w-full border py-4 font-bold uppercase tracking-[0.2em] text-sm transition-all cursor-pointer" data-i18n="btn_submit">
+    Kirim via WhatsApp
+</button>
+</form>
+</div>
+</div>
+
+</section>
+
+<!-- FOOTER LUXURY -->
+<footer class="bg-[#050505] text-slate-500 py-16 border-t border-[#E5B80B]/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <p class="text-[#E5B80B] font-serif text-2xl tracking-[0.2em] uppercase">Tempera</p>
+        <p class="text-sm max-w-sm mx-auto font-light leading-relaxed" data-i18n="footer_desc">
+            Menyediakan layanan sewa mobil dan paket tour Lembang-Ciwidey dengan standar pelayanan prima dan kenyamanan eksklusif.
+        </p>
+        <div class="w-20 h-[1px] bg-[#E5B80B]/30 mx-auto"></div>
+        <div class="text-[10px] uppercase tracking-[0.2em] text-slate-600" data-i18n="copyright">
+            &copy; 2026 Tempera. All rights reserved.
+        </div>
+    </div>
+</footer>
+<!-- TAMBAHKAN INI DI BAGIAN <style> DI HEAD ANDA -->
+<style>
+    @keyframes heartbeat-bounce {
+        0%, 100% { transform: translateY(0) scale(1); }
+        25% { transform: translateY(-15px) scale(1.05); }
+        50% { transform: translateY(0) scale(1); }
+        75% { transform: translateY(-5px) scale(1.02); }
+    }
+    .animate-heartbeat-bounce {
+        animation: heartbeat-bounce 2s ease-in-out infinite;
+    }
+</style>
+
+<!-- TOMBOL WHATSAPP MELAYANG (Dual Effect: Bounce + Heartbeat) -->
+<a href="https://api.whatsapp.com/send?phone=6285174352575&text=Halo%20Admin%20Tempera%2C%20saya%20tertarik%20dengan%20paket%20wisata%20Bandung." 
+   target="_blank" 
+   class="fixed bottom-8 right-8 z-[100] group flex items-center justify-center w-14 h-14 bg-[#0A0A0A] border border-[#E5B80B]/50 hover:border-[#E5B80B] rounded-full shadow-2xl backdrop-blur-md transition-all duration-500 hover:scale-110 animate-heartbeat-bounce"
+   title="Hubungi Kami via WhatsApp">
+    
+    <!-- Ikon WhatsApp Emas -->
+    <svg class="w-7 h-7 text-[#E5B80B] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.456h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>
+
+
+
+<script>
+    // 1. DATA TERJEMAHAN (Bahasa yang lebih luwes/natural)
+    const translations = {
+        id: {
+            nav_home: "Beranda", nav_dest: "Destinasi", nav_galeri: "Galeri", nav_armada: "Armada", nav_fasilitas: "Fasilitas", nav_order: "Booking Sekarang",
+            hero_badge: "Spesialis Wisata Bandung", hero_title_1: "Jelajahi Keindahan", hero_title_2: "Lembang & Ciwidey", hero_desc: "Nikmati pengalaman liburan yang dirancang khusus untuk kenyamanan dan ketenangan Anda di tanah Pasundan.",
+            btn_rute: "Lihat Rute", btn_jadwal: "Konsultasi Jadwal", dest_title: "Paket Wisata Favorit", dest_subtitle: "Pilihan rute terbaik untuk momen liburan yang berkesan.",
+            tag_north: "Bandung Utara", card1_title: "Lembang Nature & Family", card1_desc: "Eksplorasi Orchid Forest, Floating Market, Dusun Bambu, dan santai di destinasi kuliner hits.",
+            price_start: "Mulai dari", dur1: "4 hari 3 malam", tag_south: "Bandung Selatan", card2_title: "Pesona Alam Ciwidey", card2_desc: "Kawah Putih yang ikonik, interaksi rusa di Ranca Upas, hingga kebun teh yang menyegarkan.",
+            dur2: "3 hari 2 malam", tag_flex: "Fleksibel", card3_title: "Custom / Private Trip", card3_desc: "Liburan sesuka hati, tentukan destinasi impian Anda dengan kenyamanan maksimal.", price_info: "Lihat Harga", contact_admin: "Tanya Admin",
+            fleet_title: "Armada Kami", fleet_price_title: "Daftar Harga Sewa", fleet_note: "Harga paket 12 jam (All-In: Unit, Driver, & BBM)", tbl_header_car: "Unit", tbl_header_cap: "Kapasitas", tbl_header_price: "Harga (12 Jam)",
+            cap_57: "5-7 Orang", cap_7: "7 Orang", cap_15: "15 Orang", fleet_disclaimer: "*Harga bisa berubah sesuai rute. Chat kami untuk penawaran spesial.", testi_title: "Kata Mereka",
+            testi1_desc: "\"Liburan ke Ciwidey jadi sangat praktis. Driver-nya ramah, nyetir aman, dan sangat on-time. Puas banget!\"", testi2_desc: "\"Solusi terbaik kalau mau ke Lembang tanpa harus pusing kena macet. Tinggal duduk manis!\"",
+            booking_title: "Reservasi Perjalanan", booking_subtitle: "Isi data di bawah ini untuk mengamankan slot perjalanan Anda.", form_name: "Nama Lengkap", form_contact: "Nomor WhatsApp", form_route: "Pilih Rute", form_pax: "Jumlah Peserta", form_date: "Tanggal Berangkat", form_note: "Catatan Tambahan / Lokasi Jemput", btn_submit: "Kirim ke WhatsApp",
+            footer_desc: "Mitra terpercaya untuk layanan sewa mobil dan paket tour Lembang-Ciwidey dengan standar pelayanan prima.", copyright: "© 2026 Tempera. Seluruh hak cipta dilindungi."
+        },
+        en: {
+            nav_home: "Home", nav_dest: "Destinations", nav_galeri: "Gallery", nav_armada: "Our Fleet", nav_fasilitas: "Facilities", nav_order: "Book Now",
+            hero_badge: "Bandung Tour Specialist", hero_title_1: "Explore the Best of", hero_title_2: "Lembang & Ciwidey", hero_desc: "Enjoy a curated holiday experience designed for your ultimate comfort in West Java.",
+            btn_rute: "View Routes", btn_jadwal: "Ask for Schedule", dest_title: "Top Tour Packages", dest_subtitle: "Handpicked routes for your exclusive getaway.",
+            tag_north: "North Bandung", card1_title: "Lembang Nature & Family", card1_desc: "Orchid Forest, Floating Market, Dusun Bambu, and great culinary stops.",
+            price_start: "Starting from", dur1: "4 days 3 nights", tag_south: "South Bandung", card2_title: "Ciwidey Natural Charm", card2_desc: "Magical Kawah Putih, deer feeding at Ranca Upas, and scenic tea gardens.",
+            dur2: "3 days 2 nights", tag_flex: "Flexible", card3_title: "Custom / Private Trip", card3_desc: "Design your dream vacation with complete freedom and comfort.", price_info: "View Rates", contact_admin: "Chat Admin",
+            fleet_title: "Our Vehicles", fleet_price_title: "Rental Rates", fleet_note: "12-hour package (All-In: Car, Driver, & Fuel)", tbl_header_car: "Vehicle", tbl_header_cap: "Capacity", tbl_header_price: "Price (12 Hours)",
+            cap_57: "5-7 People", cap_7: "7 People", cap_15: "15 People", fleet_disclaimer: "*Rates may vary. Contact us for a custom quote.", testi_title: "Guest Reviews",
+            testi1_desc: "\"The trip to Ciwidey was so convenient. The driver was professional, safe, and punctual. Highly recommended!\"", testi2_desc: "\"The best way to enjoy Lembang without worrying about traffic. Just sit back and relax.\"",
+            booking_title: "Travel Reservation", booking_subtitle: "Fill in the details below and we'll be in touch soon.", form_name: "Full Name", form_contact: "WhatsApp Number", form_route: "Select Route", form_pax: "Number of Guests", form_date: "Travel Date", form_note: "Notes / Pickup Point", btn_submit: "Send via WhatsApp",
+            footer_desc: "Your trusted partner for car rentals and tour packages in Lembang-Ciwidey.", copyright: "© 2026 Tempera. All rights reserved."
+        },
+        ms: {
+            nav_home: "Utama", nav_dest: "Destinasi", nav_galeri: "Galeri", nav_armada: "Pilihan Kereta", nav_fasilitas: "Kemudahan", nav_order: "Tempah Sekarang",
+            hero_badge: "Pakar Percutian Bandung", hero_title_1: "Terokai Keindahan", hero_title_2: "Lembang & Ciwidey", hero_desc: "Nikmati percutian yang disusun khas untuk keselesaan dan ketenangan anda di tanah Pasundan.",
+            btn_rute: "Lihat Laluan", btn_jadwal: "Semak Ketersediaan", dest_title: "Pakej Percutian Popular", dest_subtitle: "Pilihan laluan terbaik untuk percutian yang benar-benar berbaloi.",
+            tag_north: "Bandung Utara", card1_title: "Alam Semulajadi Lembang", card1_desc: "Orchid Forest Cikole, Floating Market, Dusun Bambu, dan persinggahan kulinari yang menarik.",
+            price_start: "Bermula dari", dur1: "4 hari 3 malam", tag_south: "Bandung Selatan", card2_title: "Keajaiban Ciwidey", card2_desc: "Terokai Kawah Putih yang magis, beri makan rusa di Ranca Upas, dan kebun teh yang menenangkan.",
+            dur2: "3 hari 2 malam", tag_flex: "Fleksibel", card3_title: "Trip Peribadi", card3_desc: "Bebas tentukan destinasi impian anda dengan keselesaan tanpa kompromi.", price_info: "Lihat Harga", contact_admin: "Hubungi Admin",
+            fleet_title: "Pilihan Kereta", fleet_price_title: "Senarai Harga Sewa", fleet_note: "Harga pakej 12 jam (All-In: Unit, Pemandu, & Minyak)", tbl_header_car: "Kenderaan", tbl_header_cap: "Kapasiti", tbl_header_price: "Harga (12 Jam)",
+            cap_57: "5-7 Orang", cap_7: "7 Orang", cap_15: "15 Orang", fleet_disclaimer: "*Harga mungkin berubah ikut laluan. Chat kami untuk tawaran istimewa.", testi_title: "Kata Pelanggan",
+            testi1_desc: "\"Percutian ke Ciwidey sangat mudah. Pemandu sangat peramah, memandu dengan cermat, dan tepat waktu. Memang puas hati!\"", testi2_desc: "\"Pilihan terbaik kalau nak ke Lembang tanpa pening dengan kesesakan jalan raya. Sangat selesa!\"",
+            booking_title: "Tempahan Perjalanan", booking_subtitle: "Lengkapkan butiran di bawah untuk kami uruskan tempahan anda.", form_name: "Nama Penuh", form_contact: "Nombor WhatsApp", form_route: "Pilih Laluan", form_pax: "Bilangan Peserta", form_date: "Tarikh Perjalanan", form_note: "Nota / Lokasi Pengambilan", btn_submit: "Hantar melalui WhatsApp",
+            footer_desc: "Rakan percutian anda untuk perkhidmatan sewa kereta dan pakej tour Lembang-Ciwidey dengan standard kualiti premium.", copyright: "© 2026 Tempera. Hak cipta terpelihara."
+        }
+    };
+
+    // Fungsi ganti bahasa (tetap sama, namun data lebih rapi)
+    function changeLanguage(lang, label) {
+        document.getElementById('currentLang').innerText = label;
+        document.getElementById('langMenu').classList.add('hidden');
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') { el.placeholder = translations[lang][key]; } 
+                else { el.innerText = translations[lang][key]; }
+            }
+        });
+    }
+
+    // Fungsi kirim WhatsApp tetap optimal
+    function handleFormSubmit(event) {
+    event.preventDefault();
+
+    // 1. Ambil input dari form
+    const nama = document.getElementById('formNama').value;
+    const kontak = document.getElementById('formKontak').value;
+    const unitPilihan = document.getElementById('formUnit').value;
+    const jumlah = document.getElementById('formJumlah').value;
+    const tanggal = document.getElementById('formTanggal').value;
+    const catatan = document.getElementById('formCatatan').value;
+    
+    // Ambil checkbox yang dicentang
+    const checked = document.querySelectorAll('input[name="destinasi"]:checked');
+
+    if (checked.length === 0) {
+        alert("Silakan pilih minimal satu destinasi wisata!");
+        return;
+    }
+
+    // 2. Harga Dasar Unit
+    let hargaDasar = 0;
+    if (unitPilihan === "Toyota Avanza") hargaDasar = 600000;
+    else if (unitPilihan === "Toyota Innova Reborn") hargaDasar = 900000;
+    else if (unitPilihan === "Toyota Hiace") hargaDasar = 1500000;
+
+    // 3. Logika Biaya Tambahan
+    let ruteLembang = [], ruteCiwidey = [], rutePangalengan = [], groups = new Set();
+    checked.forEach(cb => {
+        const grup = cb.getAttribute('data-group');
+        groups.add(grup);
+        if (grup === 'lembang') ruteLembang.push(cb.value);
+        else if (grup === 'ciwidey') ruteCiwidey.push(cb.value);
+        else if (grup === 'pangalengan') rutePangalengan.push(cb.value);
+    });
+
+    let biayaTambahan = 0;
+    let keteranganTambahan = "";
+    if (groups.size === 2) {
+        biayaTambahan = 150000;
+        keteranganTambahan = "\n   - Biaya Mix 2 Wilayah: Rp150.000";
+    } else if (groups.size === 3) {
+        biayaTambahan = 300000;
+        keteranganTambahan = "\n   - Biaya Mix 3 Wilayah: Rp300.000";
+    }
+
+    const totalHarga = hargaDasar + biayaTambahan;
+
+    // 4. Susun Rute
+    let ruteTeks = "";
+    if (ruteLembang.length > 0) ruteTeks += `\n   - Lembang: ${ruteLembang.join(', ')}`;
+    if (ruteCiwidey.length > 0) ruteTeks += `\n   - Ciwidey: ${ruteCiwidey.join(', ')}`;
+    if (rutePangalengan.length > 0) ruteTeks += `\n   - Pangalengan: ${rutePangalengan.join(', ')}`;
+
+    // 5. Susun Rincian Penjumlahan
+    let rincianHarga = `\n   - Harga Unit ${unitPilihan}: Rp${hargaDasar.toLocaleString('id-ID')}`;
+    if (biayaTambahan > 0) {
+        rincianHarga += keteranganTambahan;
+    }
+    rincianHarga += `\n   ----------------------------`;
+    rincianHarga += `\n   *TOTAL: Rp${totalHarga.toLocaleString('id-ID')}*`;
+
+    // 6. Susun Pesan WhatsApp
+    let textMsg = `Halo Admin *Tempera*, saya ingin memesan paket wisata.\n\n` +
+                  `---------------------------------\n` +
+                  ` *DETAIL PEMESANAN*\n` +
+                  `---------------------------------\n` +
+                  ` *NAMA :* ${nama}\n` +
+                  ` *KONTAK :* ${kontak}\n` +
+                  ` *UNIT :* ${unitPilihan}\n` +
+                  ` *RUTE :* ${ruteTeks}\n\n` +
+                  ` *RINCIAN HARGA:*` + rincianHarga +
+                  `\n\n *PESERTA :* ${jumlah} Orang\n` +
+                  ` *TANGGAL :* ${tanggal}\n` +
+                  ` *CATATAN :* ${catatan}\n\n` +
+                  `Mohon informasikan ketersediaan unitnya, terima kasih!`;
+
+    // 7. Kirim ke WhatsApp
+    const url = `https://api.whatsapp.com/send?phone=6285174352575&text=${encodeURIComponent(textMsg)}`;
+    window.open(url, '_blank');
+}
+
+
+
+
+    
+    // UI Dropdown
+    function toggleDropdown(event) { event.stopPropagation(); document.getElementById('langMenu').classList.toggle('hidden'); }
+    window.addEventListener('click', () => document.getElementById('langMenu').classList.add('hidden'));
+</script>
+
+
+
+</body>
+</html>
